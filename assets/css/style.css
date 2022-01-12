@@ -1,0 +1,30 @@
+.hero {
+  background-image: url("../images/hero.png");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background-position: 80%;
+  padding: 150px;
+  position: relative;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer div ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+footer div ul li a {
+  padding: 10px 15px;
+}
