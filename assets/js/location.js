@@ -2,6 +2,80 @@ var locationNameEl = document.querySelector("#location-name");
 var hoursEl = document.querySelector("#location-hours");
 var reviewsEl =document.querySelector("#location-reviews");
 
+const YELP_API_KEY =
+  "7H9uRe7QsFeCs8O7xXLydqmmSD_8kHYAVuRlBXZOe0f9apriuMOORwWuSJeSdUcZevUogNsu2pdURyy77-_k6xP5of2PDcutkWAagIBIF5RhffMu80Zu1DOfon_fYXYx";
+var getBusinessID = function() {
+  let cityName = "Indianapolis"; //document.getElementById("city-name").value;
+  let breweryName = "Brewdog"; //queryString.split("=")[1];
+  const yelpUrl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=breweries&term=${breweryName}&location=${cityName}`;
+ 
+  const apiOptions = {
+    headers: {
+      Authorization: `Bearer ${YELP_API_KEY}`,
+      mode: "cors",
+    },
+  };
+  return fetch(yelpUrl, apiOptions)
+    .then((res) => res.json())
+    .then((json) => getLocationHours(json))
+    .catch((err) => {
+      console.log("error: ", err);
+    });
+};
+
+var getLocationHours = function(data) {
+  let id = data.businesses[0].id;
+  console.log(id);
+  const yelpUrlID = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`;
+
+  const apiOptions = {
+    headers: {
+      Authorization: `Bearer ${YELP_API_KEY}`,
+      mode: "cors",
+    },
+  };
+
+  return fetch(yelpUrlID, apiOptions)
+    .then((res) => res.json())
+    .then((json) => displayHours(json))
+    .catch((err) => {
+      console.log("error: ", err);
+    });
+  
+};
+
+var displayHours = function(data) {
+  console.log(data);
+  var businessName = data.name;
+  var nameHeader = document.createElement("h2");
+  nameHeader.textContent = businessName;
+  locationNameEl.appendChild(nameHeader);
+
+  //moment().format("kk:mm");
+  var hours = data.hours[0].open;
+  var hoursMonday = hours[0].start;
+  console.log(hoursMonday);
+  
+  console.log(hours);
+
+
+  // for (var i = 0; i < hours.length; i++) {
+  //   var dayHours = document.createElement("p");
+  // }
+}
+
+// $(currentLoc).click(function () {
+//   // get the API result via jQuery.ajax
+//   $.ajax({
+//     url: "http://api.ipstack.com/check?access_key=" + access_key,
+//     dataType: "jsonp",
+//     success: function (json) {
+//       // output the "capital" object inside "location"
+//       console.log(json.city);
+//     },
+//   });
+// });
+
 //var location = "Sun King Brewery"
 
 // var apiURL = "https://api.yelp.com/v3/businesses/E8RJkjfdcwgtyoPMjQ_Olg";
@@ -54,4 +128,4 @@ var reviewsEl =document.querySelector("#location-reviews");
  //https://api.yelp.com/v3/businesses/search
 // };
 
-getLocationHours();
+getBusinessID();
