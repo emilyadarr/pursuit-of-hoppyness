@@ -14,7 +14,8 @@
           colors: {
             primarycolor: '#ecd245', //yellow 
             secondarycolor: '#14100f', // black
-            tertiarycolor: '#ffffff' // white
+            tertiarycolor: '#ffffff', // white
+            quarternarycolor: '#818e9b' // gray
           }
         }
       }
@@ -34,12 +35,12 @@
 
   <main>
     
-    <div>
+    <div class="min-h-fit p-10 md:grid md:grid-cols-2 gap-6">
 
       <!-- Left column -->
-      <div class="grid grid-cols-4 gap-4">
-        <div>
-          <h2 class="text-secondarycolor">Search for Breweries</h2>
+      <div class="space-y-10 bg-quarternarycolor border-solid border-2 border-black rounded-lg">
+        <div class="">
+          <h2 class="text-secondarycolor text-xl font-bold mb-2">Search for Breweries</h2>
           <!-- form -->
           <form id="beer-form">
             <input name="location-input" id="location-input" type="text" placeholder="City Name">
@@ -52,7 +53,7 @@
       </div>
 
       <!-- Right column -->
-      <div>
+      <div class="space-y-10 bg-quarternarycolor border-solid border-2 border-black rounded-lg">
         <h2 class="text-secondarycolor"> Locations in</h2>
         <div class="locations-list"></div>
       </div>
