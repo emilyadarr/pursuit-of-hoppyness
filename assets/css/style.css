@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   align-items: flex-start;
   background-position: 80%;
-  padding: 150px;
+  padding: 220px;
   position: relative;
 }
 
@@ -27,4 +27,11 @@ footer div ul {
 
 footer div ul li a {
   padding: 10px 15px;
+}
+
+.page-title {
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 64px;
+  margin-left: 320px;
+  text-shadow: 3px 3px black;
 }
