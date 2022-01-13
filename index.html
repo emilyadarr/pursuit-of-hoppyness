@@ -12,8 +12,8 @@
       theme: {
         extend: {
           colors: {
-            primarycolor: '#ecd245', //yellow 
-            secondarycolor: '#14100f', // black
+            primarycolor: '#14100f', // dark
+            secondarycolor: '#cc8710', // orangeish
             tertiarycolor: '#ffffff', // white
             quarternarycolor: '#818e9b' // gray
           }
@@ -35,16 +35,16 @@
 
   <main>
     
-    <div class="min-h-fit p-10 md:grid md:grid-cols-2 gap-6">
+    <div class="min-h-fit p-10 md:grid md:grid-cols-2 gap-8">
 
       <!-- Left column -->
-      <div class="space-y-10 bg-quarternarycolor border-solid border-2 border-black rounded-lg">
+      <div class="space-y-10 bg-secondarycolor border-solid border-2 border-black rounded-lg">
         <div class="">
-          <h2 class="text-secondarycolor text-xl font-bold mb-2">Search for Breweries</h2>
+          <h2 class="text-primarycolor text-center text-xl font-bold mb-2">Search for Breweries</h2>
           <!-- form -->
           <form id="beer-form">
             <input name="location-input" id="location-input" type="text" placeholder="City Name">
-            <button class="text-secondarycolor" type="submit" id="search">Search</button>
+            <button class="text-primaryarycolor" type="submit" id="search">Search</button>
           </form>
         </div>
         <!-- favorite locations list -->
@@ -53,8 +53,8 @@
       </div>
 
       <!-- Right column -->
-      <div class="space-y-10 bg-quarternarycolor border-solid border-2 border-black rounded-lg">
-        <h2 class="text-secondarycolor"> Locations in</h2>
+      <div class="space-y-10 bg-secondarycolor border-solid border-2 border-black rounded-lg">
+        <h2 class="text-primarycolor text-center text-xl font-bold mb-2"> Locations in</h2>
         <div class="locations-list"></div>
       </div>
 
@@ -62,17 +62,17 @@
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer class="justify-between p-10">
     <h3 class="text-secondarycolor">Created by: </h3>
     <div class="text-secondarycolor">
       <ul>
-        <li>
+        <li class="rounded-full bg-secondarycolor text-primarycolor">
           <a href="">Button 1</a>
         </li>
-        <li>
+        <li class="rounded-full bg-secondarycolor text-primarycolor">
           <a href="">Button 2</a>
         </li>
-        <li>
+        <li class="rounded-full bg-secondarycolor text-primarycolor">
           <a href="">Button 3</a>
         </li>
       </ul>
