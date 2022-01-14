@@ -40,6 +40,8 @@
         <h2> Locations in</h2>
         <div class="locations-list"></div>
       </div>
+      <!-- move this wherever we want the cards -->
+      <div id="cities-container"></div>
 
     </div>
   </main>
@@ -61,6 +63,25 @@
       </ul>
     </div>
   </footer>
+  
+<!-- template for display cards, wont render since it is wrapped in template tags -->
+<template id="card-template">
+  <div class="card">
+    <h3 class="card-name"></h3>
+    <p class="card-breweryType"></p>
+    <div class="card-address address">
+      <p>
+        <span class="address-street"></span>, <span class="address-city"></span>, <span class="address-state"></span> <span class="address-postal"></span> 
+      </p>
+      <p class="card-phone">
+
+      </p>
+      <p class="card-website">
+        <a href="" class="card-website-url"></a>
+      </p>
+    </div>
+  </div>
+</template>
 
 
   <script src="./assets/js/script.js"></script>
