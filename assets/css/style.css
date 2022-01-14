@@ -1,13 +1,6 @@
-.hero {
-  background-image: url("../images/hero.png");
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  background-position: 80%;
-  padding: 220px;
-  position: relative;
+header img {
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 footer {
@@ -31,7 +24,11 @@ footer div ul li a {
 
 .page-title {
   font-family: 'Inria Sans', sans-serif;
-  font-size: 64px;
-  margin-left: 320px;
-  text-shadow: 3px 3px black;
+  font-size: 50px;
+  text-align: center;
+  text-shadow: 3px 3px #3cb34c;
+  color: #ffffff;
+  margin-top: 5px;
 }
+
+

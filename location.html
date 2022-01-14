@@ -12,9 +12,10 @@
       theme: {
         extend: {
           colors: {
-            primarycolor: '#ecd245', // yellow
-            secondarycolor: '#14100f', // black
-            tertiarycolor: '#ffffff' // white
+            primarycolor: '#5c5c5c', // gray
+            secondarycolor: '#3cb34c', // green
+            tertiarycolor: '#ffffff', // white
+            quarternarycolor: '#cc8710' // beer
           }
         }
       }
@@ -24,12 +25,12 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Pursuit of Hoppyness</title>
 </head>
-<body class="bg-primarycolor">
+<body class="bg-quarternarycolor">
       <!-- Header/ hero image -->
       <!-- Add TailWind CSS-->
-  <header>
+  <header class="w-full relative p-10 bg-tertiarycolor hero">
     <section class="hero">
-      <h1 class="text-tertiarycolor page-title">Welcome to Your Beer Adventure!<span id="beer-info"></span></h1>
+      <img src="assets/images/image (1).png"/>
 
       <!-- Back Button -->
       <div>
@@ -43,6 +44,11 @@
   </header>
 
   <main>
+
+    <div class="p-10 flex flex-col h-min">
+      <h2 class="page-title">Welcome to Your Beer Adventure!<span id="beer-info"></span></h2>
+    </div>
+
     <div>
       <!-- Brewery Info -->
       <!-- Add TailWind CSS to style the page flex, col, etc -->
