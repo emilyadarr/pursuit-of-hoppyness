@@ -37,7 +37,7 @@ var getBreweries = function(city) {
   }
 
   var displayBreweries = function(city) {
-    // check if api returned any repos
+    // check if api returned any breweries
     if (city.length === 0) {
       breweryContainerEl.textContent = 'No breweries found.';
       return;
