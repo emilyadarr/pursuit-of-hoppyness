@@ -4,6 +4,9 @@ var reviewsEl =document.querySelector("#location-reviews");
 
 const YELP_API_KEY =
   "7H9uRe7QsFeCs8O7xXLydqmmSD_8kHYAVuRlBXZOe0f9apriuMOORwWuSJeSdUcZevUogNsu2pdURyy77-_k6xP5of2PDcutkWAagIBIF5RhffMu80Zu1DOfon_fYXYx";
+// get business ID using Yelp API Search
+
+// TODO: connect cityName and breweryName variables from previous page
 var getBusinessID = function() {
   let cityName = "Indianapolis"; //document.getElementById("city-name").value;
   let breweryName = "Brewdog"; //queryString.split("=")[1];
@@ -23,8 +26,10 @@ var getBusinessID = function() {
     });
 };
 
+// get Location hours using business ID in Yelp API
 var getLocationHours = function(data) {
   let id = data.businesses[0].id;
+  getReviews(id);
   console.log(id);
   const yelpUrlID = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`;
 
@@ -44,88 +49,63 @@ var getLocationHours = function(data) {
   
 };
 
+// Display name and hours
 var displayHours = function(data) {
-  console.log(data);
+  //console.log(data);
   var businessName = data.name;
   var nameHeader = document.createElement("h2");
   nameHeader.textContent = businessName;
   locationNameEl.appendChild(nameHeader);
 
-  //moment().format("kk:mm");
   var hours = data.hours[0].open;
-  var hoursMonday = hours[0].start;
-  console.log(hoursMonday);
-  
   console.log(hours);
 
+  day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-  // for (var i = 0; i < hours.length; i++) {
-  //   var dayHours = document.createElement("p");
-  // }
+  for (var i = 0; i < hours.length; i++) {
+    
+    function convert(input) {
+      return moment(input, 'kkmm').format('h:mm A');
+    }
+  
+    var hoursStart = convert(hours[i].start);
+    var hoursEnd = convert(hours[i].end);
+
+    console.log(convert(hoursStart));
+    console.log(convert(hoursEnd));
+
+    var dayHours = document.createElement("p");
+    dayHours.textContent = day[i] +": " + hoursStart + " - " + hoursEnd;
+    hoursEl.appendChild(dayHours);
+
+  }
 }
 
-// $(currentLoc).click(function () {
-//   // get the API result via jQuery.ajax
-//   $.ajax({
-//     url: "http://api.ipstack.com/check?access_key=" + access_key,
-//     dataType: "jsonp",
-//     success: function (json) {
-//       // output the "capital" object inside "location"
-//       console.log(json.city);
-//     },
-//   });
-// });
+// Get reviews from Yelp API Reviews using business ID
+var getReviews = function(id) {
+  //let id = data.businesses[0].id;
+  const yelpUrlID = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}/reviews`;
 
-//var location = "Sun King Brewery"
+  const apiOptions = {
+    headers: {
+      Authorization: `Bearer ${YELP_API_KEY}`,
+      mode: "cors",
+    },
+  };
 
-// var apiURL = "https://api.yelp.com/v3/businesses/E8RJkjfdcwgtyoPMjQ_Olg";
+  return fetch(yelpUrlID, apiOptions)
+    .then((res) => res.json())
+    .then((json) => console.log(json))
+    .catch((err) => {
+      console.log("error: ", err);
+    });
+};
 
-// var apiKey = "7H9uRe7QsFeCs8O7xXLydqmmSD_8kHYAVuRlBXZOe0f9apriuMOORwWuSJeSdUcZevUogNsu2pdURyy77-_k6xP5of2PDcutkWAagIBIF5RhffMu80Zu1DOfon_fYXYx";
+//TODO: Display reviews
+var displayReviews = function(data) {
+  var reviews = data.reviews
 
-// var req = new Request(apiURL, {
-//   method: 'GET',
-//   headers: new Headers({
-//     'Authorization': Bearer apiKey, 
-//     'Content-Type': 'application/json'
-//   })
-// });
 
-// var getLocationHours = function() {
-//   fetch(req).then(function(response) {
-//     // request was successful
-//     if (response.ok) {
-//       response.json().then(function(data) {
-//         //pass response data to dom function
-//         console.log(data);
-//       })
-//     }
-//   });
-// }
-//
-
-// TODO: Cors anywhere proxy
-//add api key as parameters
-// ask Mark for help if needed
-// add bearer key as header in fetch
-// using a bearer token with fetch
-// try postman
-
-// var getLocationHours = function() {
-//   var apiURL = "https://api.yelp.com/v3/businesses/E8RJkjfdcwgtyoPMjQ_Olg";
-
-//   fetch(apiURL).then(function(response) {
-//     Headers {'Authorization' = Bearer "7H9uRe7QsFeCs8O7xXLydqmmSD_8kHYAVuRlBXZOe0f9apriuMOORwWuSJeSdUcZevUogNsu2pdURyy77-_k6xP5of2PDcutkWAagIBIF5RhffMu80Zu1DOfon_fYXYx"}
-//     // request was successful
-//     if (response.ok) {
-//       response.json().then(function(data) {
-//         //pass response data to dom function
-//         console.log(data);
-//       })
-//     }
-//   });
-  
- // https://api.yelp.com/v3/businesses/ + locationId
- //https://api.yelp.com/v3/businesses/search
-// };
+}
 
 getBusinessID();
