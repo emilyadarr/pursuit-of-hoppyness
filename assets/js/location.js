@@ -1,6 +1,7 @@
 var locationNameEl = document.querySelector("#location-name");
 var hoursEl = document.querySelector("#location-hours");
 var reviewsEl =document.querySelector("#location-reviews");
+var reviewsContainerEl = document.querySelector('#reviews-container');
 
 const YELP_API_KEY =
   "7H9uRe7QsFeCs8O7xXLydqmmSD_8kHYAVuRlBXZOe0f9apriuMOORwWuSJeSdUcZevUogNsu2pdURyy77-_k6xP5of2PDcutkWAagIBIF5RhffMu80Zu1DOfon_fYXYx";
@@ -103,9 +104,65 @@ var getReviews = function(id) {
 
 //TODO: Display reviews
 var displayReviews = function(data) {
-  var reviews = data.reviews
+  
+  response.json().then(function(data) {
+    displayReviews(data);
+  })
+  var reviews = data.reviews;
+  var reviewsHeader = document.createElement("h2");
+  reviewsHeader.textContent = reviews;
+  reviewsEl.appendChild(reviewsHeader);
 
+  // if(reviews.length === 0) {
+  //   reviewsEl.textContent = "No reviews found.";
+  //   return;
+  // }
+  
+  for(var i = 0; i <data.reviews.length; i++) {
 
-}
+    var ratings = data.reviews[i].rating;
+    var text = data.reviews[i].text;
+    var link = data.reviews[i].url;
+
+    var ratingsEl = document.createElement("p");
+    ratingsEl.classList = "list-group";
+    
+
+    var textEl = document.createElement("p");
+    textEl.classList = "list-group";
+    
+
+    var linkEl = document.createElement("p");
+    linkEl.classList = "list-group";
+    
+
+    ratingsEl.appendChild(ratingsEl);
+    textEl.appendChild(textEl);
+    linkEl.appendChild(linkEl);
+  }
+};
+// if(reviews === 0) {
+//   reviewsEl.textContent = ("No reviews found.");
+//     return;
+// }
+//   createReviewCards(reviews);
+// };
+
+// function createReviewCards(reviews) {
+//   const reviewsContainer = document.getElementId("review-list");
+
+//   const reviewTemplate = document.getElementId("review-template");
+//   reviews.forEach((reviews) => {
+
+//     const card = document.importNode(reviewTemplate.content, true);
+
+//     card.querySelector('.rating').textContent = rating;
+//     card.querySelector('.text').textContent = text;
+//     card.querySelector('.url').textContent = url;
+//     card.querySelector('.url').setAttribute("href", url);
+
+//     reviewsContainerEl.appendChild(card);
+//   });
+// };
 
 getBusinessID();

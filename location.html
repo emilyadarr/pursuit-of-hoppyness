@@ -40,6 +40,7 @@
       <div>
         <h3>Reviews</h3>
         <div id="location-reviews"></div>
+        <div id="reviews-container" class="list-group"></div>
       </div>
 
     </div>
@@ -64,6 +65,22 @@
       </div>
     </footer>
     <!-- End of Footer -->
+
+    <!-- template for display cards, wont render since it is wrapped in template tags -->
+<template id="review-template">
+  <div class="card">
+
+    <div class="rating"></div>
+
+    <div class="text"></div>
+
+      <div class="url">
+        <a href="" class="url"></a>
+      </div>
+    
+  </div>
+</template>
+
 
     <!-- Link to JS Page -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
