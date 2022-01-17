@@ -96,7 +96,7 @@ var getReviews = function(id) {
 
   return fetch(yelpUrlID, apiOptions)
     .then((res) => res.json())
-    .then((json) => console.log(json))
+    .then((dataReviews) => {displayReviews(dataReviews.reviews)}) 
     .catch((err) => {
       console.log("error: ", err);
     });
@@ -108,9 +108,9 @@ var displayReviews = function(listReviews) {
   if(listReviews.length > 0) {
     for(let i = 0; i < listReviews.length; i++) {
 
-      var ratings = data.reviews[i].rating;
-      var text = data.reviews[i].text;
-      var link = data.reviews[i].url;
+      var ratings = listReviews[i].rating;
+      var text = listReviews[i].text;
+      var link = listReviews[i].url;
 
       var ratingsEl = document.createElement("p");
       ratingsEl.textContent = ratings;
@@ -121,7 +121,7 @@ var displayReviews = function(listReviews) {
       var linkEl = document.createElement("p");
       linkEl.textContent = link;
 
-      reviewsContainerEl.append(raitingsEl, textEl, linkEl)
+      reviewsContainerEl.append(ratingsEl, textEl, linkEl)
     }
   }
 }
