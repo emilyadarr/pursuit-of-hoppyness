@@ -7,10 +7,26 @@ const YELP_API_KEY =
   "7H9uRe7QsFeCs8O7xXLydqmmSD_8kHYAVuRlBXZOe0f9apriuMOORwWuSJeSdUcZevUogNsu2pdURyy77-_k6xP5of2PDcutkWAagIBIF5RhffMu80Zu1DOfon_fYXYx";
 // get business ID using Yelp API Search
 
-// TODO: connect cityName and breweryName variables from previous page
-var getBusinessID = function() {
-  let cityName = "Indianapolis"; //document.getElementById("city-name").value;
-  let breweryName = "Brewdog"; //queryString.split("=")[1];
+// connect cityName and breweryName variables from previous page
+var getBreweryName = function() {
+  //grab city name from url query string
+  var queryString = document.location.search;
+  var city = queryString.split("=")[2];
+  var brewery = queryString.split("=")[1].split("?")[0].split("%20").join(" ");
+
+  if (brewery) {
+    getBusinessID(city, brewery);
+  }
+
+  else {
+    document.location.replace("./index.html");
+  }
+};
+
+// get Business ID from Yelp API by searching city and brewery name
+var getBusinessID = function(cityName, breweryName) {
+  //console.log(cityName);
+  //console.log(breweryName);
   const yelpUrl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?categories=breweries&term=${breweryName}&location=${cityName}`;
  
   const apiOptions = {
@@ -31,7 +47,7 @@ var getBusinessID = function() {
 var getLocationHours = function(data) {
   let id = data.businesses[0].id;
   getReviews(id);
-  console.log(id);
+  //console.log(id);
   const yelpUrlID = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`;
 
   const apiOptions = {
@@ -59,7 +75,7 @@ var displayHours = function(data) {
   locationNameEl.appendChild(nameHeader);
 
   var hours = data.hours[0].open;
-  console.log(hours);
+  //console.log(hours);
 
   day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -72,8 +88,8 @@ var displayHours = function(data) {
     var hoursStart = convert(hours[i].start);
     var hoursEnd = convert(hours[i].end);
 
-    console.log(convert(hoursStart));
-    console.log(convert(hoursEnd));
+    //console.log(convert(hoursStart));
+    //console.log(convert(hoursEnd));
 
     var dayHours = document.createElement("p");
     dayHours.textContent = day[i] +": " + hoursStart + " - " + hoursEnd;
@@ -102,7 +118,7 @@ var getReviews = function(id) {
     });
 };
 
-//TODO: Display reviews
+// Display reviews
 var displayReviews = function(listReviews) {
 
   if(listReviews.length > 0) {
@@ -126,4 +142,4 @@ var displayReviews = function(listReviews) {
   }
 }
 
-getBusinessID();
+getBreweryName();
