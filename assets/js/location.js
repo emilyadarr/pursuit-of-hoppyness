@@ -103,66 +103,27 @@ var getReviews = function(id) {
 };
 
 //TODO: Display reviews
-var displayReviews = function(data) {
-  
-  response.json().then(function(data) {
-    displayReviews(data);
-  })
-  var reviews = data.reviews;
-  var reviewsHeader = document.createElement("h2");
-  reviewsHeader.textContent = reviews;
-  reviewsEl.appendChild(reviewsHeader);
+var displayReviews = function(listReviews) {
 
-  // if(reviews.length === 0) {
-  //   reviewsEl.textContent = "No reviews found.";
-  //   return;
-  // }
-  
-  for(var i = 0; i <data.reviews.length; i++) {
+  if(listReviews.length > 0) {
+    for(let i = 0; i < listReviews.length; i++) {
 
-    var ratings = data.reviews[i].rating;
-    var text = data.reviews[i].text;
-    var link = data.reviews[i].url;
+      var ratings = data.reviews[i].rating;
+      var text = data.reviews[i].text;
+      var link = data.reviews[i].url;
 
-    var ratingsEl = document.createElement("p");
-    ratingsEl.classList = "list-group";
-    
+      var ratingsEl = document.createElement("p");
+      ratingsEl.textContent = ratings;
 
-    var textEl = document.createElement("p");
-    textEl.classList = "list-group";
-    
+      var textEl = document.createElement("p");
+      textEl.textContent = text;
 
-    var linkEl = document.createElement("p");
-    linkEl.classList = "list-group";
-    
+      var linkEl = document.createElement("p");
+      linkEl.textContent = link;
 
-    ratingsEl.appendChild(ratingsEl);
-    textEl.appendChild(textEl);
-    linkEl.appendChild(linkEl);
+      reviewsContainerEl.append(raitingsEl, textEl, linkEl)
+    }
   }
-};
-// if(reviews === 0) {
-//   reviewsEl.textContent = ("No reviews found.");
-//     return;
-// }
-//   createReviewCards(reviews);
-// };
-
-// function createReviewCards(reviews) {
-//   const reviewsContainer = document.getElementId("review-list");
-
-//   const reviewTemplate = document.getElementId("review-template");
-//   reviews.forEach((reviews) => {
-
-//     const card = document.importNode(reviewTemplate.content, true);
-
-//     card.querySelector('.rating').textContent = rating;
-//     card.querySelector('.text').textContent = text;
-//     card.querySelector('.url').textContent = url;
-//     card.querySelector('.url').setAttribute("href", url);
-
-//     reviewsContainerEl.appendChild(card);
-//   });
-// };
+}
 
 getBusinessID();
