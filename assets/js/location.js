@@ -1,6 +1,7 @@
 var locationNameEl = document.querySelector("#location-name");
 var hoursEl = document.querySelector("#location-hours");
 var reviewsEl =document.querySelector("#location-reviews");
+var reviewsContainerEl = document.querySelector('#reviews-container');
 
 const YELP_API_KEY =
   "7H9uRe7QsFeCs8O7xXLydqmmSD_8kHYAVuRlBXZOe0f9apriuMOORwWuSJeSdUcZevUogNsu2pdURyy77-_k6xP5of2PDcutkWAagIBIF5RhffMu80Zu1DOfon_fYXYx";
@@ -95,17 +96,34 @@ var getReviews = function(id) {
 
   return fetch(yelpUrlID, apiOptions)
     .then((res) => res.json())
-    .then((json) => console.log(json))
+    .then((dataReviews) => {displayReviews(dataReviews.reviews)}) 
     .catch((err) => {
       console.log("error: ", err);
     });
 };
 
 //TODO: Display reviews
-var displayReviews = function(data) {
-  var reviews = data.reviews
+var displayReviews = function(listReviews) {
 
+  if(listReviews.length > 0) {
+    for(let i = 0; i < listReviews.length; i++) {
 
+      var ratings = listReviews[i].rating;
+      var text = listReviews[i].text;
+      var link = listReviews[i].url;
+
+      var ratingsEl = document.createElement("p");
+      ratingsEl.textContent = ratings;
+
+      var textEl = document.createElement("p");
+      textEl.textContent = text;
+
+      var linkEl = document.createElement("p");
+      linkEl.textContent = link;
+
+      reviewsContainerEl.append(ratingsEl, textEl, linkEl)
+    }
+  }
 }
 
 getBusinessID();
