@@ -1,64 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primarycolor: "#5c5c5c", // gray
+              secondarycolor: "#3cb34c", // green
+              tertiarycolor: "#ffffff", // white
+              quarternarycolor: "#cc8710", // beer
+            },
+          },
+        },
+      };
+
+      module.exports = {
+        theme: {
+          screens: {
+            sm: "640px",
+            // => @media (min-width: 640px) { ... }
+
+            md: "768px",
+            // => @media (min-width: 768px) { ... }
+
+            lg: "1024px",
+            // => @media (min-width: 1024px) { ... }
+
+            xl: "1280px",
+            // => @media (min-width: 1280px) { ... }
+
+            "2xl": "1536px",
+            // => @media (min-width: 1536px) { ... }
+          },
+        },
+      };
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&family=Open+Sans:wght@400;700&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Pursuit of Hoppyness</title>
-</head>
-<body>
-      <!-- Header/ hero image -->
-      <!-- Add TailWind CSS-->
-  <header>
-    <section class="hero">
-      <h1 class="page-title">Welcome to Your Beer Adventure!<span id="beer-info"></span></h1>
+  </head>
+  <body class="bg-quarternarycolor">
+    <!-- Header/ hero image -->
+    <!-- Add TailWind CSS-->
+    <header class="w-full relative p-10 bg-tertiarycolor hero">
+      <section class="hero">
+        <img src="assets/images/image (1).png" />
 
-      <!-- Back Button -->
+        <!-- Back Button -->
+        <div>
+          <a
+            href="./index.html"
+            class="btn-back bg-secondarycolor text-tertiarycolor rounded-full p-3 go-back"
+          >
+            Back
+          </a>
+        </div>
+        <!-- End Back Button -->
+      </section>
+    </header>
+
+    <main>
+      <div class="p-10 flex flex-col h-min">
+        <h2 class="page-title">
+          Welcome to Your Beer Adventure!<span id="beer-info"></span>
+        </h2>
+      </div>
+
       <div>
-        <a href="./index.html" class="btn-back">
-          Back
-        </a>
-      </div>
-      <!-- End Back Button -->
+        <!-- Brewery Info -->
+        <!-- Add TailWind CSS to style the page flex, col, etc -->
+        <div class="grid md:grid-rows-3 min-h-fit p-10 sm:flex flex-col gap-8 card-body">
+          <div class="space-y-10 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
+            <h2 class="text-tertiarycolor text-center card-title" id="location-name">Location Name</h2>
+          </div>
 
-    </section>
-  </header>
+          <div class="space-y-10 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
+            <h3 class="text-tertiarycolor text-center card-title" >Hours</h3>
+            <div id="location-hours">
 
-  <main>
-    <div>
-      <!-- Brewery Info -->
-      <!-- Add TailWind CSS to style the page flex, col, etc -->
-      <div id="location-name">
+            </div>
+            <!-- <h class="text-tertiarycolor">Hours Listed</h> -->
+          </div>
+          <div class="space-y-10 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
+            <h3 class="text-tertiarycolor text-center card-title">Reviews</h3>
+            <div id="location-reviews"></div>
+            <div id="reviews-container" class="list-group"></div>
+            <!-- <p class="text-tertiarycolor">Review List</p> -->
+          </div>
+        </div>
       </div>
-      <div>
-        <h3>Hours</h3>
-        <div id="location-hours"></div>
-      </div>
-      <div>
-        <h3>Reviews</h3>
-        <div id="location-reviews"></div>
-        <div id="reviews-container" class="list-group"></div>
-      </div>
-
-    </div>
     </main>
     <!-- End of Brewery Info -->
 
     <!-- Footer Info -->
-    <footer>
-      <h3>Created by: </h3>
-      <div>
+    <footer class="justify-between self-end min-h-fit p-10 md:grid md:grid-cols-2 gap-8 bg-primarycolor fixed bottom-0">
+      <h3 class="text-tertiarycolor">Created by: </h3>
+      <div class="text-secondarycolor">
         <ul>
-          <li>
+          <li class="rounded-full bg-secondarycolor text-primarycolor">
             <a href="">Button 1</a>
           </li>
-          <li>
+          <li class="rounded-full bg-secondarycolor text-primarycolor">
             <a href="">Button 2</a>
           </li>
-          <li>
+          <li class="rounded-full bg-secondarycolor text-primarycolor">
             <a href="">Button 3</a>
           </li>
         </ul>
