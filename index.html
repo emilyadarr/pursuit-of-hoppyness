@@ -71,7 +71,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="justify-between self-end min-h-fit p-10 md:grid md:grid-cols-2 gap-8 bg-primarycolor fixed bottom-0">
+  <footer class="justify-between self-end min-h-fit p-10 md:grid md:grid-cols-2 gap-8 bg-primarycolor ">
     <h3 class="text-tertiarycolor">Created by: </h3>
     <div class="text-secondarycolor">
       <ul>
@@ -90,21 +90,23 @@
   
 <!-- template for display cards, wont render since it is wrapped in template tags -->
 <template id="card-template">
-  <a class="card bg-primarycolor">
-    <h3 class="card-name"></h3>
-    <p class="card-breweryType"></p>
-    <div class="card-address address">
-      <p>
-        <span class="address-street"></span>, <span class="address-city"></span>, <span class="address-state"></span> <span class="address-postal"></span> 
+  <div class="card bg-tertiarycolor">
+      <h3 class="card-brewery-name"></h3>
+      <p> Type:
+      <span class="card-breweryType"></span>
       </p>
-      <p class="card-phone">
-
-      </p>
-      <p class="card-website">
-        <a href="" class="card-website-url"></a>
-      </p>
-    </div>
-  </a>
+      <div class="card-address address">
+        <p>
+          <span class="address-street"></span>, <span class="address-city"></span>, <span class="address-state"></span> <span class="address-postal"></span> 
+        </p>
+        <p class="card-phone">
+        </p>
+      </div>
+      <a class="card-btn card-website-url">View Website</a>
+      <button class="card-btn favorite-btn">Favorite</button>
+      <a class="card-btn view-hours">View Hours</a>
+      
+  </div>
 </template>
 
 
@@ -119,4 +121,4 @@
 <!--<svg class="w-5 h-5 text-gray-600 absolute mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
   </svg> -->
-<!--justify-self-start-->
+<!--justify-self-start--> 
