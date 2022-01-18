@@ -62,9 +62,9 @@
       <div class="space-y-10 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
         <h2 class="text-tertiarycolor text-center text-xl font-bold pt-2 mb-2">Locations in</h2>
         <div class="locations-list"></div>
+        <!-- move this wherever we want the cards -->
+        <div id="cities-container"></div>
       </div>
-      <!-- move this wherever we want the cards -->
-      <div id="cities-container"></div>
 
     </div>
 
@@ -90,7 +90,7 @@
   
 <!-- template for display cards, wont render since it is wrapped in template tags -->
 <template id="card-template">
-  <a class="card">
+  <a class="card bg-primarycolor">
     <h3 class="card-name"></h3>
     <p class="card-breweryType"></p>
     <div class="card-address address">
