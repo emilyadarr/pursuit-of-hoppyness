@@ -74,6 +74,10 @@ footer div ul li a {
   border-radius: 5px;
 }
 
-h1 {
-  color: pink;
+.card-btn:hover {
+  color: #ffffff;
+}
+
+.hide {
+  display: none;
 }
