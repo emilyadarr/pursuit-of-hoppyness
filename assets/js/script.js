@@ -10,6 +10,7 @@ var getBreweries = function(city) {
   fetch(apiUrl).then(function(response) {
     if (response.ok) {
     response.json().then(function(city) {
+      console.log(city);
       displayBreweries(city);
     });
   }else {
