@@ -6,28 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primarycolor: '#5c5c5c', // gray
+            secondarycolor: '#3cb34c', // green
+            tertiarycolor: '#ffffff', // white
+            quarternarycolor: '#cc8710' // beer
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Pursuit of Hoppyness</title>
 </head>
-<body>
+<body class="bg-quarternarycolor">
   <!-- Header/ hero image -->
-  <header>
-    <section class="hero">
-
-    </section>
+  <header class="w-full relative p-10 bg-tertiarycolor hero">
+    <img src="assets/images/image (1).png"/>
   </header>
 
   <main>
-    <div>
 
+    <div class="p-10 flex flex-col h-min">
+      <h2 class="page-title">Welcome to Your Beer Adventure!<span id="beer-info"></span></h2>
+    </div>
+    
+ 
+    <div class="min-h-fit p-10 md:grid md:grid-cols-2 sm:flex flex-col gap-8 flex-grow">
       <!-- Left column -->
-      <div>
-        <div>
-          <h2>Search for Breweries</h2>
+      <div class="space-y-10 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
+        <div class="">
+          <h2 class="text-tertiarycolor text-center text-xl font-bold pt-2 mb-2">Search for Breweries</h2>
           <!-- form -->
-          <form id="beer-form">
-            <input name="location-input" id="location-input" type="text" placeholder="City Name">
-            <button type="submit" id="search">Search</button>
+          
+          <form class="text-center text-xl font-bold pt-3 mb-2 overflow-auto" id="beer-form">
+            <input class="rounded-2xl btn px-4 py-2 w-80 border-none ring-2 ring-secondarycolor focus:ring-blue-500 focus:ring-2" name="location-input" id="location-input" type="text" placeholder="City Name">
+            <button class="text-tertiarycolor rounded-lg items-center justify-center px-4" type="submit" id="search">
+              Search
+            </button>
           </form>
         </div>
         <!-- favorite locations list -->
@@ -35,29 +57,31 @@
 
       </div>
 
+  
       <!-- Right column -->
-      <div>
-        <h2> Locations in</h2>
+      <div class="space-y-10 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
+        <h2 class="text-tertiarycolor text-center text-xl font-bold pt-2 mb-2">Locations in</h2>
         <div class="locations-list"></div>
       </div>
       <!-- move this wherever we want the cards -->
       <div id="cities-container"></div>
 
     </div>
+
   </main>
 
   <!-- Footer -->
-  <footer>
-    <h3>Created by: </h3>
-    <div>
+  <footer class="justify-between self-end min-h-fit p-10 md:grid md:grid-cols-2 gap-8 bg-primarycolor fixed bottom-0">
+    <h3 class="text-tertiarycolor">Created by: </h3>
+    <div class="text-secondarycolor">
       <ul>
-        <li>
+        <li class="rounded-full bg-secondarycolor text-primarycolor">
           <a href="">Button 1</a>
         </li>
-        <li>
+        <li class="rounded-full bg-secondarycolor text-primarycolor">
           <a href="">Button 2</a>
         </li>
-        <li>
+        <li class="rounded-full bg-secondarycolor text-primarycolor">
           <a href="">Button 3</a>
         </li>
       </ul>
@@ -66,7 +90,7 @@
   
 <!-- template for display cards, wont render since it is wrapped in template tags -->
 <template id="card-template">
-  <div class="card">
+  <a class="card">
     <h3 class="card-name"></h3>
     <p class="card-breweryType"></p>
     <div class="card-address address">
@@ -80,10 +104,19 @@
         <a href="" class="card-website-url"></a>
       </p>
     </div>
-  </div>
+  </a>
 </template>
 
 
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
+
+
+
+
+
+<!--<svg class="w-5 h-5 text-gray-600 absolute mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+  </svg> -->
+<!--justify-self-start-->

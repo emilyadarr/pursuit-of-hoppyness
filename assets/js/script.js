@@ -62,6 +62,7 @@ var getBreweries = function(city) {
       card.querySelector('.card-phone').textContent = city.phone;
       card.querySelector('.card-website-url').textContent = city.website_url;
       card.querySelector('.card-website-url').setAttribute("href", city.website_url);
+      card.querySelector(".card").setAttribute("href", "./location.html?brewery=" + city.name + "?location=" + city.city);
       citiesContainer.appendChild(card);
     });
   };
