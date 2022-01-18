@@ -27,8 +27,8 @@ function createBreweryCards(city, isFavorites) {
       card.querySelector('.favorite-btn').classList.add("hide");
       favoriteLocationsEl.appendChild(card);
     }else {
-      card.querySelector('.favorite-btn').value1 = brewery.city;
-      card.querySelector('.favorite-btn').value2 = index;
+      card.querySelector('.favorite-btn').dataset.city = brewery.city;
+      card.querySelector('.favorite-btn').dataset.index = index;
       card.querySelector('.favorite-btn').addEventListener("click", saveFavoriteBreweries);
       citiesContainer.appendChild(card);
     }
@@ -52,7 +52,7 @@ var getBreweries = function(city) {
     if (response.ok) {
     response.json().then(function(cityQueryResults) {
       console.log(cityQueryResults);
-      var cityQueryKey = city + "-query"
+      var cityQueryKey = city.toLowerCase() + "-query"
       localStorage.setItem(cityQueryKey, JSON.stringify(cityQueryResults));
       displayBreweries(cityQueryResults);
     });
@@ -66,21 +66,25 @@ var getBreweries = function(city) {
   }
 
   var saveFavoriteBreweries = function(){
-    var city = this.value1;
+    var city = this.dataset.city;
+    city = city.toLowerCase();
     var cityQueryResults = localStorage.getItem(city+"-query");
     var favorites = localStorage.getItem("Favorites");
     var breweryObjectArray = [];
+    var clickedBrewery = JSON.parse(cityQueryResults)[this.dataset.index]
     if (favorites) {
       favorites = JSON.parse(favorites);
     } else {
       favorites = [];
     };
-    var breweryObject = JSON.parse(cityQueryResults)[this.value2]
-    breweryObjectArray.push(breweryObject);
-    favorites.push(breweryObject);
-    console.log(JSON.parse(cityQueryResults)[this.value2])
-    localStorage.setItem("Favorites",JSON.stringify(favorites)) || [];
-    createBreweryCards(breweryObjectArray, true);
+    if(favorites.some(favoriteBrewery => favoriteBrewery.name === clickedBrewery.name)) {
+      console.log("already favorited");
+    } else {
+      breweryObjectArray.push(clickedBrewery);
+      favorites.push(clickedBrewery);
+      localStorage.setItem("Favorites",JSON.stringify(favorites));
+      createBreweryCards(breweryObjectArray, true);
+    }
   };
 
   var formSubmitHandler = function(event) {
