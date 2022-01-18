@@ -1,0 +1,54 @@
+:root {
+  scroll-behavior: auto;
+}
+
+header img {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer div ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  align-content: space-evenly;
+}
+
+footer div ul li a {
+  padding: 10px 30px;
+  display: inline;
+  color: white;
+}
+
+.page-title {
+  font-family: 'Inria Sans', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  text-shadow: 2px 2px #3cb34c;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.go-back {
+  display: inline;
+}
+
+.card-title {
+  font-family: 'Inria Sans', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.card-body {
+  margin-left: 500px;
+  margin-right: 500px;
+}
