@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <!--<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,6 +24,7 @@
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&family=Open+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/age.css" />
   <title>Pursuit of Hoppyness</title>
 </head>
 <body class="bg-quarternarycolor">
@@ -56,6 +58,7 @@
         <div id="favorite-locations"></div>
 
       </div>
+      
 
   
       <!-- Right column -->
@@ -65,11 +68,29 @@
         <!-- move this wherever we want the cards -->
         <div id="cities-container"></div>
       </div>
+      
+    </div>
+      <!-- move this wherever we want the cards -->
+      <div id="cities-container"></div>
 
+    <div id="ageModal" class="pursuit-age-bg">
+      <div class="pursuit-age-checker">
+        <div>
+          <div>
+            <h1>Welcome!</h1>
+            <h2>Please verify that you are 21 years or older.</h2>
+          </div>
+          <div class="age-btn-div">
+            <button class="age-yes-btn">Yes, I am!</button>
+            <button class="age-no-btn">No, I am not.</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </main>
-
+  
+  
   <!-- Footer -->
   <footer class="justify-between self-end min-h-fit p-10 md:grid md:grid-cols-2 gap-8 bg-primarycolor ">
     <h3 class="text-tertiarycolor">Created by: </h3>
@@ -110,6 +131,7 @@
 </template>
 
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
