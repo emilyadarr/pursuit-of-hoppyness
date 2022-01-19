@@ -1,3 +1,47 @@
+
+$(document).ready(function() {
+
+    var ofAge = localStorage.getItem("age-verified");
+        
+    console.log(ofAge, typeof(ofAge));
+       if (ofAge === "true") {
+           $("#ageModal").hide();
+           console.log("is this working?")
+       }
+        else if (ofAge === "false") {
+            $(location).attr('href', catUrl);
+       }
+        else {
+        ageVerify();
+        console.log("this")
+        }
+    function ageVerify() {
+        $('#ageModal').show();
+        $('html body').css('overflow','hidden');
+    };
+
+
+    
+    $('.age-yes-btn').click(function() {
+        $('#ageModal').hide();
+        localStorage.setItem("age-verified", true);
+    })
+    
+
+
+    var catUrl = "https://www.funnycatpix.com/"
+
+    
+    $('.age-no-btn').click(function() {
+        $(location).attr('href', catUrl);
+    })
+   
+
+
+
+    
+});
+
 var locationInputEl = document.querySelector("#location-input");
 //var beerContainerEl = document.querySelector(".locations-list");
 var beerFormEl = document.querySelector("#beer-form");
@@ -101,4 +145,8 @@ var getBreweries = function(city) {
     });
   };
 
+
   beerFormEl.addEventListener("submit", formSubmitHandler);
+  
+
+
