@@ -48,10 +48,18 @@ footer div ul li a {
   font-size: 25px;
 }
 
-.card-body {
+#hours-title {
+  border-bottom: solid 2px #3cb34c;
+}
+
+#review-title {
+  border-bottom: solid 2px #3cb34c;
+}
+
+/* .card-body {
   margin-left: 500px;
   margin-right: 500px;
-}
+} */
 
 .card {
   background-color: #ffffff;
@@ -80,4 +88,9 @@ footer div ul li a {
 
 .hide {
   display: none;
+}
+
+#reviews-container {
+  overflow-wrap: break-word;
+  width: 100%;
 }
