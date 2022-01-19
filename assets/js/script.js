@@ -191,50 +191,8 @@ var getBreweries = function(city) {
   //   });
   // };
 
-<<<<<<< HEAD
   beerFormEl.addEventListener("submit", formSubmitHandler);
   displayFavorites();
   
   
  
-=======
-  function createCityCards(cities) { 
-    const citiesContainer = document.getElementById('cities-container');
-    cities.forEach((city) => {
-      // Create a card element in javascript to start populating data
-      var card = document.createElement("div");
-      var cardName = document.createElement("h3");
-      var breweryType = document.createElement("p");
-      var breweryAddress = document.createElement("p");
-      var breweryPhone = document.createElement("p");
-      var websiteBtn = document.createElement("a");
-      var likeBtn = document.createElement("a");
-      var hoursBtn = document.createElement("a");
-
-      hoursBtn.setAttribute("href", "./location.html?brewery=" + city.name + "?location=" + city.city);
-      cardName.textContent = city.name;
-      breweryType.textContent = "Type: " + city.brewery_type;
-      breweryAddress.textContent = city.street + " " + city.city + ", " + city.state;
-      breweryPhone.textContent = city.phone;
-      websiteBtn.textContent = "Brewery Website";
-      websiteBtn.setAttribute("href", city.website_url);
-      likeBtn.textContent = "Favorite";
-      hoursBtn.textContent = "View Hours";
-
-      card.classList = "card";
-      cardName.classList = "card-brewery-name";
-      websiteBtn.classList = "card-btn";
-      likeBtn.classList = "card-btn";
-      hoursBtn.classList = "card-btn";
-
-      card.append(cardName, breweryType, breweryAddress, breweryPhone, websiteBtn, likeBtn, hoursBtn);
-      citiesContainer.appendChild(card);
-    });
-  };
-
-
-  beerFormEl.addEventListener("submit", formSubmitHandler);
-  
-
-
->>>>>>> 8b6fbb063edf8b5d9a4b0eec7590ae7a33d60426
