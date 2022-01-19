@@ -53,7 +53,7 @@
   <body class="bg-quarternarycolor">
     <!-- Header/ hero image -->
     <!-- Add TailWind CSS-->
-    <header class="w-full relative p-10 bg-tertiarycolor hero">
+    <header class="w-screen relative p-10 bg-tertiarycolor hero">
       <section class="hero">
         <img src="assets/images/image (1).png" />
 
@@ -70,7 +70,7 @@
       </section>
     </header>
 
-    <main>
+    <main class="flex-col">
       <div class="p-10 flex flex-col h-min">
         <h2 class="page-title">
           Welcome to Your Beer Adventure!<span id="beer-info"></span>
@@ -80,22 +80,22 @@
       <div>
         <!-- Brewery Info -->
         <!-- Add TailWind CSS to style the page flex, col, etc -->
-        <div class="grid md:grid-rows-3 min-h-fit p-10 sm:flex flex-col gap-8 card-body">
+        <div class="min-h-fit p-10 flex flex-col gap-8 card-body">
           <div class="space-y-10 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
             <h2 class="text-tertiarycolor text-center card-title" id="location-name"></h2>
           </div>
 
           <div class="space-y-8 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
-            <h3 class="text-tertiarycolor text-center card-title" >Hours</h3>
+            <h3 id="hours-title" class="text-tertiarycolor title-border text-center card-title" >Hours</h3>
             <div id="location-hours" class= "text-tertiarycolor text-center p-4">
 
             </div>
             <!-- <h class="text-tertiarycolor">Hours Listed</h> -->
           </div>
-          <div class="space-y-10 min-w-fit bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
-            <h3 class="text-tertiarycolor text-center card-title">Reviews</h3>
+          <div class="space-y-10 bg-primarycolor border-solid border-2 border-secondarycolor rounded-lg">
+            <h3 id="review-title" class="text-tertiarycolor text-center card-title">Reviews</h3>
             <div id="location-reviews"></div>
-            <div id="reviews-container" class="list-group text-tertiarycolor"></div>
+            <div id="reviews-container" class="list-group overflow-wrap flex-col w-full text-tertiarycolor"></div>
             <!-- <p class="text-tertiarycolor">Review List</p> -->
           </div>
         </div>
