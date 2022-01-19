@@ -138,6 +138,8 @@ var getBreweries = function(city) {
   
     if (city) {
       getBreweries(city);
+      var locationListName = document.getElementById("city-name");
+      locationListName.textContent = city;
       locationInputEl.value = "";
     } else {
       alert("Please enter a city");
