@@ -120,24 +120,30 @@ var getReviews = function(id) {
 
 // Display reviews
 var displayReviews = function(listReviews) {
-
   if(listReviews.length > 0) {
     for(let i = 0; i < listReviews.length; i++) {
 
       var ratings = listReviews[i].rating;
       var text = listReviews[i].text;
       var link = listReviews[i].url;
+      
+      var reviewCard = document.createElement("div");
+      reviewCard.classList = "card";
 
-      var ratingsEl = document.createElement("p");
-      ratingsEl.textContent = ratings;
+      var ratingsEl = document.createElement("h4");
+      ratingsEl.classList = "card-brewery-name";
+      ratingsEl.textContent = ratings + "/5";
 
       var textEl = document.createElement("p");
-      textEl.textContent = text;
+      textEl.textContent = '"' + text + '"';
 
-      var linkEl = document.createElement("p");
-      linkEl.textContent = link;
+      var linkEl = document.createElement("a");
+      linkEl.setAttribute("href", link);
+      linkEl.classList = "card-btn";
+      linkEl.textContent = "Read More";
 
-      reviewsContainerEl.append(ratingsEl, textEl, linkEl)
+      reviewCard.append(ratingsEl, textEl, linkEl);
+      reviewsContainerEl.appendChild(reviewCard);
     }
   }
 }

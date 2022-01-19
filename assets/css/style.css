@@ -48,10 +48,18 @@ footer div ul li a {
   font-size: 25px;
 }
 
-.card-body {
+#hours-title {
+  border-bottom: solid 2px #3cb34c;
+}
+
+#review-title {
+  border-bottom: solid 2px #3cb34c;
+}
+
+/* .card-body {
   margin-left: 500px;
   margin-right: 500px;
-}
+} */
 
 .card {
   background-color: #ffffff;
@@ -101,6 +109,8 @@ footer div ul li a {
   border-bottom-right-radius: 0;
 }
 
+
+
 @media screen and (max-width: 375px) {
   #search{
     position: relative;
@@ -129,9 +139,9 @@ footer div ul li a {
     border-bottom-left-radius: 15px;
     
   }
+}
   .input-group img {
     display: inline;
     
-  }
+  };
   
-}

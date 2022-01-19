@@ -4,16 +4,15 @@ $(document).ready(function() {
     var ofAge = localStorage.getItem("age-verified");
         
     console.log(ofAge, typeof(ofAge));
-       if (ofAge === "true") {
+        if (ofAge === "true") {
            $("#ageModal").hide();
            console.log("is this working?")
-       }
+        }
         else if (ofAge === "false") {
             $(location).attr('href', catUrl);
-       }
+        }
         else {
         ageVerify();
-        console.log("this")
         }
     function ageVerify() {
         $('#ageModal').show();
@@ -139,6 +138,8 @@ var getBreweries = function(city) {
   
     if (city) {
       getBreweries(city);
+      var locationListName = document.getElementById("city-name");
+      locationListName.textContent = city;
       locationInputEl.value = "";
     } else {
       alert("Please enter a city");
