@@ -52,3 +52,32 @@ footer div ul li a {
   margin-left: 500px;
   margin-right: 500px;
 }
+
+.card {
+  background-color: #ffffff;
+  margin: 20px;
+  border: solid 2px #3cb34c;
+  padding: 5px;
+}
+
+.card-brewery-name {
+  font-family: 'Inria Sans', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.card-btn {
+  background-color: #3cb34c;
+  padding: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.card-btn:hover {
+  color: #ffffff;
+}
+
+.hide {
+  display: none;
+}
