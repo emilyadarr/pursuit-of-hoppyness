@@ -2,11 +2,13 @@
   scroll-behavior: auto;
 }
 
+/* Header */
 header img {
   position: -webkit-sticky;
   position: sticky;
 }
 
+/* Footer Start */
 footer {
   width: 100%;
   display: flex;
@@ -28,6 +30,7 @@ footer div ul li a {
   display: inline;
   color: white;
 }
+/* Footer End */
 
 .page-title {
   font-family: 'Inria Sans', sans-serif;
@@ -56,11 +59,7 @@ footer div ul li a {
   border-bottom: solid 2px #3cb34c;
 }
 
-/* .card-body {
-  margin-left: 500px;
-  margin-right: 500px;
-} */
-
+/* Brewery cards start */
 .card {
   background-color: #ffffff;
   margin: 20px;
@@ -85,6 +84,7 @@ footer div ul li a {
 .card-btn:hover {
   color: #ffffff;
 }
+/* Brewery Cards end */
 
 .hide {
   display: none;
@@ -108,6 +108,8 @@ footer div ul li a {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+
+/* Responsiveness */
 
 @media screen and (max-width: 990px) {
   #search {
@@ -235,6 +237,3 @@ footer div ul li a {
     display: inline;
     
   };
-
- 
-  
