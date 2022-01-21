@@ -139,6 +139,7 @@ var displayReviews = function(listReviews) {
 
       var linkEl = document.createElement("a");
       linkEl.setAttribute("href", link);
+      linkEl.setAttribute("target", "blank");
       linkEl.classList = "card-btn";
       linkEl.textContent = "Read More";
 

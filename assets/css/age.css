@@ -1,14 +1,4 @@
-/* body {
-	font-family: Arial, Helvetica, sans-serif;
-	transition: all 0.5s ease;
-    background-image: linear-gradient(135deg,#14100f,#a71904, #c15501, #cc8710, #ecd245);
-	background-repeat:no-repeat;
-	background-attachment:fixed;
-	background-size: cover;
-	text-align:center;
-	height:100%;
-} */
-
+/* Styling for Age Verification Modal */
 .pursuit-age-bg {
     background: rgba(0,0,0,.7);
     position: fixed;
