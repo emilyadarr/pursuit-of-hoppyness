@@ -109,7 +109,98 @@ footer div ul li a {
   border-bottom-right-radius: 0;
 }
 
+@media screen and (max-width: 990px) {
+  #search {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    flex: end;
+    width: 100%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-top: 5px;
+  }  
 
+  .input-group {
+    size: 25%;
+    padding-right: 0;
+    justify-content: space-between;
+  }
+
+  #location-input {
+    width: 100%;
+    border-radius: 15;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    
+  }
+  
+}
+
+@media screen and (max-width: 767px) {
+  #search {
+    position: absolute;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; 
+    padding-left: 20px;
+    border:#3cb34c 2px;
+    width: 10%;
+    height: 8%;
+  }
+
+  #search img {
+    align-items: center;
+    padding-right: 2px;
+  }
+
+  .input-group {
+    padding-right: 35px;
+  }
+  
+  #location-input {
+    width: 65%;
+    left: 100px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+}
+
+@media screen and (max-width: 530px) {
+  #search {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    flex: end;
+    width: 100%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-top: 5px;
+  }  
+
+  .input-group {
+    size: 25%;
+    padding-right: 0;
+    justify-content: space-between;
+  }
+
+  #location-input {
+    width: 100%;
+    border-radius: 15;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    
+  }
+  
+}
 
 @media screen and (max-width: 375px) {
   #search{
@@ -144,4 +235,6 @@ footer div ul li a {
     display: inline;
     
   };
+
+ 
   

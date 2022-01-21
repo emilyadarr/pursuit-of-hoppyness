@@ -100,11 +100,11 @@ var getBreweries = function(city) {
       displayBreweries(cityQueryResults);
     });
   }else {
-    window.alert("Error: City Not Found");
+    console.log("Error: City Not Found");
   }
   })
   .catch(function(error) {
-    alert("Unable to connect to Database");
+    console.log("Unable to connect to Database");
   });
   }
 
@@ -140,9 +140,9 @@ var getBreweries = function(city) {
       getBreweries(city);
       var locationListName = document.getElementById("city-name");
       locationListName.textContent = city;
-      locationInputEl.value = "";
+      locationInputEl.value = ""; 
     } else {
-      alert("Please enter a city");
+      console.log("Please enter a city");
     }
     console.log(event);
   }
